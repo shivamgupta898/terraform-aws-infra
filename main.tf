@@ -8,9 +8,9 @@ terraform {
   }
 }
 
-# 1. AWS Provider
+# 1. AWS Provider (Mumbai Region)
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 # 2. Dynamic AMI Lookup (Amazon Linux 2023)
@@ -74,7 +74,7 @@ resource "aws_security_group" "app_sg" {
 resource "aws_instance" "app_server" {
   ami                    = data.aws_ami.amazon_linux.id
   instance_type          = "t3.micro"
-  key_name               = "jenkins-key" # Aapka EC2 key-pair name
+  key_name               = "Master-key" # Aapka EC2 key-pair name
   vpc_security_group_ids = [aws_security_group.app_sg.id]
 
   # User data: Docker auto-install on launch
