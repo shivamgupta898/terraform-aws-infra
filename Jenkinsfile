@@ -2,7 +2,7 @@ pipeline {
     agent { label 'build-agent-1' }
 
     environment {
-        AWS_DEFAULT_REGION = 'us-east-1'
+        AWS_DEFAULT_REGION = 'ap-south-1'
     }
 
     stages {
